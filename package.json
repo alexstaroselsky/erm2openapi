@@ -1,0 +1,45 @@
+{
+  "name": "erm2openapi",
+  "version": "1.0.0",
+  "description": "Create OpenAPI documentation from Mongoose schemas for express-restify-mongoose servers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexstaroselsky/erm2openapi.git"
+  },
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "schema",
+    "swagger",
+    "openapi",
+    "documentation",
+    "express-restify-mongoose",
+    "express",
+    "model",
+    "node"
+  ],
+  "author": "Alexander Staroselsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexstaroselsky/erm2openapi/issues"
+  },
+  "homepage": "https://github.com/alexstaroselsky/erm2openapi#readme",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "mongoose": "^5.12.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mongoose-to-swagger": "^1.2.0"
+  }
+}
