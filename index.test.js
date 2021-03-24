@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const validator = require('oas-validator');
+const { createGraphQLSchema } = require("openapi-to-graphql");
 const erm2openapi = require('.');
 const document = require('./test/fixtures/api-docs.json')
 
@@ -39,5 +41,28 @@ describe('erm2openapi', () => {
     );
 
     expect(actual).toEqual(document);
+  });
+
+  it('should be a valid OpenAPI document', async () => {
+    const oas = erm2openapi(
+      {
+        info: { title: 'Test service', version: '1.0.0' },
+      },
+      models,
+    );
+
+    const { valid } = await validator.validate(oas, {});
+    expect(valid).toEqual(true);
+  });
+
+  it('should work with other tools', async () => {
+    const oas = erm2openapi(
+      {
+        info: { title: 'Test service', version: '1.0.0' },
+      },
+      models,
+    );
+
+    const { schema, report } = await createGraphQLSchema(oas);
   });
 });
