@@ -15,7 +15,9 @@
       "get": {
         "summary": "Query story",
         "operationId": "getStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "sort",
@@ -106,7 +108,9 @@
       "post": {
         "summary": "Create new story",
         "operationId": "createStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -155,7 +159,9 @@
       "get": {
         "summary": "Get story count",
         "operationId": "getStoryCount",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "sort",
@@ -219,7 +225,9 @@
                       "type": "number"
                     }
                   },
-                  "required": ["count"]
+                  "required": [
+                    "count"
+                  ]
                 }
               }
             }
@@ -251,7 +259,9 @@
       "get": {
         "summary": "Get story by id",
         "operationId": "getStoryById",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -308,7 +318,9 @@
       "post": {
         "summary": "Update story by id",
         "operationId": "updateStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -375,7 +387,9 @@
       "put": {
         "summary": "Update story by id",
         "operationId": "replaceStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -442,7 +456,9 @@
       "patch": {
         "summary": "Update story by id",
         "operationId": "patchStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -509,7 +525,9 @@
       "delete": {
         "summary": "Delete story by id",
         "operationId": "deleteStory",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -551,7 +569,9 @@
       "get": {
         "summary": "Get story by id shallow",
         "operationId": "getStoryByIdShallow",
-        "tags": ["story"],
+        "tags": [
+          "story"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -600,7 +620,9 @@
       "get": {
         "summary": "Query person",
         "operationId": "getPerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "sort",
@@ -691,7 +713,9 @@
       "post": {
         "summary": "Create new person",
         "operationId": "createPerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -740,7 +764,9 @@
       "get": {
         "summary": "Get person count",
         "operationId": "getPersonCount",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "sort",
@@ -804,7 +830,9 @@
                       "type": "number"
                     }
                   },
-                  "required": ["count"]
+                  "required": [
+                    "count"
+                  ]
                 }
               }
             }
@@ -836,7 +864,9 @@
       "get": {
         "summary": "Get person by id",
         "operationId": "getPersonById",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -893,7 +923,9 @@
       "post": {
         "summary": "Update person by id",
         "operationId": "updatePerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -960,7 +992,9 @@
       "put": {
         "summary": "Update person by id",
         "operationId": "replacePerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1027,7 +1061,9 @@
       "patch": {
         "summary": "Update person by id",
         "operationId": "patchPerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1094,7 +1130,9 @@
       "delete": {
         "summary": "Delete person by id",
         "operationId": "deletePerson",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1136,7 +1174,9 @@
       "get": {
         "summary": "Get person by id shallow",
         "operationId": "getPersonByIdShallow",
-        "tags": ["person"],
+        "tags": [
+          "person"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1185,7 +1225,10 @@
   "components": {
     "schemas": {
       "error": {
-        "required": ["name", "message"],
+        "required": [
+          "name",
+          "message"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -1198,10 +1241,19 @@
       },
       "story": {
         "type": "object",
-        "required": ["title"],
+        "required": [
+          "title"
+        ],
         "properties": {
           "author": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/person"
+              }
+            ]
           },
           "title": {
             "type": "string"
@@ -1209,7 +1261,14 @@
           "fans": {
             "type": "array",
             "items": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/person"
+                }
+              ]
             }
           },
           "_id": {
@@ -1219,7 +1278,9 @@
       },
       "person": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -1230,7 +1291,14 @@
           "stories": {
             "type": "array",
             "items": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/story"
+                }
+              ]
             }
           },
           "_id": {

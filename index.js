@@ -47,15 +47,15 @@ const erm2openapi = (
     ...rest,
   };
 
-  return Object.entries(models).reduce((acc, curr) => {
-    const [key] = curr;
+  return Object.values(models).reduce((acc, curr) => {
+    const { model: { modelName } } = curr;
     const { paths, schemas } = getModelSegments(curr, options);
 
     return {
       ...acc,
       tags: [
         ...acc.tags,
-        { name: key, description: `REST interface for ${key} model` },
+        { name: modelName, description: `REST interface for ${modelName} model` },
       ],
       paths: {
         ...acc.paths,
