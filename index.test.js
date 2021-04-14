@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('oas-validator');
 const { createGraphQLSchema } = require("openapi-to-graphql");
 const erm2openapi = require('.');
-const document = require('./test/fixtures/api-docs.json')
+const document = require('./test/fixtures/api-docs.json');
 
 const personSchema = mongoose.Schema({
   name: { type: String, required: true },

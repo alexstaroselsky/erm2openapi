@@ -1,6 +1,6 @@
 {
   "name": "erm2openapi",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Create OpenAPI documentation from Mongoose schemas for express-restify-mongoose servers.",
   "main": "index.js",
   "scripts": {
@@ -42,7 +42,7 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "mongoose-to-swagger": "^1.2.0"
+    "bson": "^4.3.0",
+    "lodash": "^4.17.21"
   }
 }

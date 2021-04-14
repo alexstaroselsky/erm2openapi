@@ -1201,7 +1201,14 @@
         "required": ["title"],
         "properties": {
           "author": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/person"
+              }
+            ]
           },
           "title": {
             "type": "string"
@@ -1209,7 +1216,14 @@
           "fans": {
             "type": "array",
             "items": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/person"
+                }
+              ]
             }
           },
           "_id": {
@@ -1230,7 +1244,14 @@
           "stories": {
             "type": "array",
             "items": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/story"
+                }
+              ]
             }
           },
           "_id": {
